@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  product_quality_id: 1
+  purchase_rate: 1.5
+  start_date: 2011-07-20 12:50:57
+  end_date: 2011-07-20 12:50:57
+
+two:
+  product_quality_id: 1
+  purchase_rate: 1.5
+  start_date: 2011-07-20 12:50:57
+  end_date: 2011-07-20 12:50:57

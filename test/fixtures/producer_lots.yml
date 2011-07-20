@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  producer_id: 1
+  received_date: 2011-07-20 12:50:47
+  comments: MyString
+
+two:
+  producer_id: 1
+  received_date: 2011-07-20 12:50:47
+  comments: MyString

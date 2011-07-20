@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Product quality:</b>
+  <%= @product_quality_purchase_rate.product_quality_id %>
+</p>
+
+<p>
+  <b>Purchase rate:</b>
+  <%= @product_quality_purchase_rate.purchase_rate %>
+</p>
+
+<p>
+  <b>Start date:</b>
+  <%= @product_quality_purchase_rate.start_date %>
+</p>
+
+<p>
+  <b>End date:</b>
+  <%= @product_quality_purchase_rate.end_date %>
+</p>
+
+
+<%= link_to 'Edit', edit_product_quality_purchase_rate_path(@product_quality_purchase_rate) %> |
+<%= link_to 'Back', product_quality_purchase_rates_path %>

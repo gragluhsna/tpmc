@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Product:</b>
+  <%= @product_quality.product_id %>
+</p>
+
+<p>
+  <b>Quality code:</b>
+  <%= @product_quality.quality_code %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @product_quality.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_product_quality_path(@product_quality) %> |
+<%= link_to 'Back', product_qualities_path %>

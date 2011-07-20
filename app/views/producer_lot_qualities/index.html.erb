@@ -1,0 +1,27 @@
+<h1>Listing producer_lot_qualities</h1>
+
+<table>
+  <tr>
+    <th>Producer lot detail</th>
+    <th>Product quality</th>
+    <th>Quantity</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @producer_lot_qualities.each do |producer_lot_quality| %>
+  <tr>
+    <td><%= producer_lot_quality.producer_lot_detail_id %></td>
+    <td><%= producer_lot_quality.product_quality_id %></td>
+    <td><%= producer_lot_quality.quantity %></td>
+    <td><%= link_to 'Show', producer_lot_quality %></td>
+    <td><%= link_to 'Edit', edit_producer_lot_quality_path(producer_lot_quality) %></td>
+    <td><%= link_to 'Destroy', producer_lot_quality, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Producer lot quality', new_producer_lot_quality_path %>

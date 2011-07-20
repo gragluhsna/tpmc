@@ -1,0 +1,2 @@
+module ProducerLotQualitiesHelper
+end

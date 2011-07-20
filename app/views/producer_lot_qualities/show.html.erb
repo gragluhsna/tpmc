@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Producer lot detail:</b>
+  <%= @producer_lot_quality.producer_lot_detail_id %>
+</p>
+
+<p>
+  <b>Product quality:</b>
+  <%= @producer_lot_quality.product_quality_id %>
+</p>
+
+<p>
+  <b>Quantity:</b>
+  <%= @producer_lot_quality.quantity %>
+</p>
+
+
+<%= link_to 'Edit', edit_producer_lot_quality_path(@producer_lot_quality) %> |
+<%= link_to 'Back', producer_lot_qualities_path %>

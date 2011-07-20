@@ -1,0 +1,27 @@
+<h1>Listing producer_lots</h1>
+
+<table>
+  <tr>
+    <th>Producer</th>
+    <th>Received date</th>
+    <th>Comments</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @producer_lots.each do |producer_lot| %>
+  <tr>
+    <td><%= producer_lot.producer_id %></td>
+    <td><%= producer_lot.received_date %></td>
+    <td><%= producer_lot.comments %></td>
+    <td><%= link_to 'Show', producer_lot %></td>
+    <td><%= link_to 'Edit', edit_producer_lot_path(producer_lot) %></td>
+    <td><%= link_to 'Destroy', producer_lot, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Producer lot', new_producer_lot_path %>

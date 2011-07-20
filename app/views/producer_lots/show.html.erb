@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Producer:</b>
+  <%= @producer_lot.producer_id %>
+</p>
+
+<p>
+  <b>Received date:</b>
+  <%= @producer_lot.received_date %>
+</p>
+
+<p>
+  <b>Comments:</b>
+  <%= @producer_lot.comments %>
+</p>
+
+
+<%= link_to 'Edit', edit_producer_lot_path(@producer_lot) %> |
+<%= link_to 'Back', producer_lots_path %>

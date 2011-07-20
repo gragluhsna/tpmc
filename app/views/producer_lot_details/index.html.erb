@@ -1,0 +1,27 @@
+<h1>Listing producer_lot_details</h1>
+
+<table>
+  <tr>
+    <th>Producer lot</th>
+    <th>Product</th>
+    <th>Quantity</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @producer_lot_details.each do |producer_lot_detail| %>
+  <tr>
+    <td><%= producer_lot_detail.producer_lot_id %></td>
+    <td><%= producer_lot_detail.product_id %></td>
+    <td><%= producer_lot_detail.quantity %></td>
+    <td><%= link_to 'Show', producer_lot_detail %></td>
+    <td><%= link_to 'Edit', edit_producer_lot_detail_path(producer_lot_detail) %></td>
+    <td><%= link_to 'Destroy', producer_lot_detail, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Producer lot detail', new_producer_lot_detail_path %>

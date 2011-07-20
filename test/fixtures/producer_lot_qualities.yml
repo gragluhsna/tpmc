@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  producer_lot_detail_id: 1
+  product_quality_id: 1
+  quantity: 1
+
+two:
+  producer_lot_detail_id: 1
+  product_quality_id: 1
+  quantity: 1
