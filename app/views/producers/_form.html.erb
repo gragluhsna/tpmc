@@ -1,33 +1,4 @@
-<%= form_for(@producer) do |f| %>
-  <% if @producer.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@producer.errors.count, "error") %> prohibited this producer from being saved:</h2>
-
-      <ul>
-      <% @producer.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
+<%= semantic_form_for @producer do |form| %>
+    <%= form.inputs %>
+    <%= form.buttons %>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_area :address %>
-  </div>
-  <div class="field">
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone %>
-  </div>
-  <div class="field">
-    <%= f.label :additional_details %><br />
-    <%= f.text_area :additional_details %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
