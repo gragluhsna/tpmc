@@ -1,4 +1,8 @@
 <%= semantic_form_for @producer_lot do |form| %>
     <%= form.inputs %>
+    <%= form.inputs :name => 'ProducerLot #%i', :for => :producer_lot_details do |producer_lot_detail| %>
+        <%= producer_lot_detail.input :product, :member_label => :description %>
+        <%= producer_lot_detail.input :quantity %>
+    <% end %>
     <%= form.buttons %>
   <% end %>
