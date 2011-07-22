@@ -1,8 +1,16 @@
-<%= semantic_form_for @producer_lot do |form| %>
-    <%= form.inputs %>
-    <%= form.inputs :name => 'ProducerLot #%i', :for => :producer_lot_details do |producer_lot_detail| %>
-        <%= producer_lot_detail.input :product, :member_label => :description %>
-        <%= producer_lot_detail.input :quantity %>
+<%= simple_form_for @producer_lot do |f| %>
+    <%= f.error_messages %>
+    <%= f.association :producer %>
+    <%= f.input :received_date %>
+    <%= f.input :comments %>
+    <%= f.simple_fields_for :producer_lot_details do |f_pld| %>
+        <%= f_pld.association :product, :label_method=>:description %>
+        <%= f_pld.input :quantity %>
+        <% unless f_pld.object.new_record? %>
+            <%= f_pld.check_box '_destroy' %>
+            <%= f_pld.label '_destroy', 'Remove' %>
+        <% end %>
     <% end %>
-    <%= form.buttons %>
-  <% end %>
+    <%= f.button :submit %>
+<% end %>
+    

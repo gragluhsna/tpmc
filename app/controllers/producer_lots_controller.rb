@@ -42,7 +42,7 @@ class ProducerLotsController < ApplicationController
   # POST /producer_lots.xml
   def create
     @producer_lot = ProducerLot.new(params[:producer_lot])
-
+    
     respond_to do |format|
       if @producer_lot.save
         format.html { redirect_to(@producer_lot, :notice => 'Producer lot was successfully created.') }

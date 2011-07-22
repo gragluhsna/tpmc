@@ -1,9 +1,7 @@
 module ProducerLotsHelper
 
-	def add_producer_lot_detail_link(name)
-		link_to_function name do |page|
-			page.insert_html :bottom, :producer_lot_details, :partial => 'producer_lot_detail' , :object => ProducerLotDetail.new
-		end
+	def producers_for_select
+		Producer.find(:all, :order => 'name').collect {|f| [ f.name, f.id ] }
 	end
 
 end

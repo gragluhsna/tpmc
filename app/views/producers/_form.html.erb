@@ -1,4 +1,7 @@
-<%= semantic_form_for @producer do |form| %>
-    <%= form.inputs %>
-    <%= form.buttons %>
-  <% end %>
+<%= simple_form_for @producer do |f| %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :phone %>
+  <%= f.input :additional_details %>
+  <%= f.button :submit %>
+<% end %>

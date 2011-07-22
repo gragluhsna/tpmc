@@ -1,8 +1,6 @@
-<%= semantic_form_for @producer_lot_detail do |form| %>
-
-    <%= form.input :producer_lot, :as => :select, :member_label => :received_date %>
-    <%= form.input :product, :as => :select, :member_label => :description %>
-    <%= form.input :quantity %>
-    
-    <%= form.buttons %>
-  <% end %>
+<%= simple_form_for @producer_lot_detail do |f| %>
+    <%= f.input :producer_lot %>
+    <%= f.input :product %>
+    <%= f.input :quantity %>
+    <%= f.button :submit %>
+<% end %>

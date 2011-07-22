@@ -6,7 +6,7 @@ gem 'rails', '3.0.9'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-gem 'formtastic', '2.0.0.rc1'
+gem "simple_form"
 gem "jquery-rails"
 gem "haml"
 
