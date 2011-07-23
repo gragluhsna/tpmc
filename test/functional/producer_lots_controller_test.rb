@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class ProducerLotsControllerTest < ActionController::TestCase
+
   setup do
     @producer_lot = producer_lots(:one)
   end

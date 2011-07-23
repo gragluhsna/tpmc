@@ -1,6 +1,6 @@
 class ProducerLot < ActiveRecord::Base
 	belongs_to :producer
-	has_many :producer_lot_details
+	has_many :producer_lot_details, :dependent => :destroy
 	
 	validates :producer_id, :presence => true
 	

@@ -1,9 +1,18 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  code: MyString
-  description: MyString
+  code: 10RP
+  description: 10" Rice Plate
 
 two:
-  code: MyString
-  description: MyString
+  code: 6QP
+  description: 6" Quarter Plate 
+  
+three:
+  code: 5B
+  description: 5" Bowl
+
+four:
+  code: 4B
+  description: 4" Bowl
+

@@ -1,5 +1,5 @@
 <%= simple_form_for @product_quality do |f| %>
-    <%= f.input :product_id %>
+    <%= f.association :product, :label_method=>:description %>
     <%= f.input :quality_code %>
     <%= f.input :description %>
     <%= f.button :submit %>

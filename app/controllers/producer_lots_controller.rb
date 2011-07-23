@@ -25,7 +25,6 @@ class ProducerLotsController < ApplicationController
   # GET /producer_lots/new.xml
   def new
     @producer_lot = ProducerLot.new
-    @producer_lot.producer_lot_details.build
 
     respond_to do |format|
       format.html # new.html.erb
