@@ -1,5 +1,5 @@
 <%= simple_form_for @product_quality_purchase_rate do |f| %>
-    <%= f.input :product_quality_id %>
+    <%= f.association :product_quality, :label_method => :quality_code %>
     <%= f.input :purchase_rate %>
     <%= f.input :start_date %>
     <%= f.input :end_date %>

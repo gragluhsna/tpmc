@@ -25,7 +25,7 @@ class ProducerLotsController < ApplicationController
   # GET /producer_lots/new.xml
   def new
     @producer_lot = ProducerLot.new
-
+     
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @producer_lot }
@@ -44,7 +44,7 @@ class ProducerLotsController < ApplicationController
     
     respond_to do |format|
       if @producer_lot.save
-        format.html { redirect_to(@producer_lot, :notice => 'Producer lot was successfully created.') }
+        format.html { redirect_to(producer_lots_url, :notice => 'Producer lot was successfully created.') }
         format.xml  { render :xml => @producer_lot, :status => :created, :location => @producer_lot }
       else
         format.html { render :action => "new" }
@@ -60,7 +60,7 @@ class ProducerLotsController < ApplicationController
 
     respond_to do |format|
       if @producer_lot.update_attributes(params[:producer_lot])
-        format.html { redirect_to(@producer_lot, :notice => 'Producer lot was successfully updated.') }
+        format.html { redirect_to(producer_lots_url, :notice => 'Producer lot was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

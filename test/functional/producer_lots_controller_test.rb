@@ -22,7 +22,7 @@ class ProducerLotsControllerTest < ActionController::TestCase
       post :create, :producer_lot => @producer_lot.attributes
     end
 
-    assert_redirected_to producer_lot_path(assigns(:producer_lot))
+    assert_redirected_to producer_lots_url
   end
 
   test "should show producer_lot" do
@@ -37,7 +37,7 @@ class ProducerLotsControllerTest < ActionController::TestCase
 
   test "should update producer_lot" do
     put :update, :id => @producer_lot.to_param, :producer_lot => @producer_lot.attributes
-    assert_redirected_to producer_lot_path(assigns(:producer_lot))
+    assert_redirected_to producer_lots_url
   end
 
   test "should destroy producer_lot" do

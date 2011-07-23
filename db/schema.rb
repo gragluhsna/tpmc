@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110720045102) do
+ActiveRecord::Schema.define(:version => 20110723165042) do
 
   create_table "producer_lot_details", :force => true do |t|
     t.integer  "producer_lot_id"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20110720045102) do
     t.string   "comments"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "advance_payment"
   end
 
   create_table "producers", :force => true do |t|

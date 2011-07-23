@@ -2,10 +2,17 @@
     <%= f.error_messages %>
     <%= f.association :producer %>
     <%= f.input :received_date %>
+    <%= f.input :advance_payment %>
     <%= f.input :comments %>
     <%= f.simple_fields_for :producer_lot_details do |f_pld| %>
-        <%= f_pld.association :product, :label_method => :description %>
-        <%= f_pld.input :quantity %>
-        <% end %>
+    <hr />
+        <%= f_pld.association :product, :as => :hidden %>
+        <%= f_pld.label f_pld.object.product.description %>
+        <%= f_pld.input :quantity, :label => "Total Quantity" %>
+        <%= f_pld.simple_fields_for :producer_lot_qualities do |f_pld_plq| %>
+        	<%= f_pld_plq.association :product_quality, :as => :hidden %>
+        	<%= f_pld_plq.input :quantity, :label => f_pld_plq.object.product_quality.quality_code %>
+    	<% end %>    
+    <% end %>
     <%= f.button :submit %>
 <% end %>
