@@ -1,0 +1,79 @@
+
+body {
+  background: #AAAAAA;
+}
+
+.container {
+	background: #ffffff;
+}
+
+header {
+  padding-top: 20px;
+}
+
+header img {
+  padding: 1em;
+  background: #fff;
+}
+
+section {
+  margin-top: 1em;
+  font-size: 120%;
+  padding: 20px;
+  background: #fff;
+}
+
+section h1 {
+  font-size: 200%;
+}
+
+/* Links */
+
+a {
+  color: #09c;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #069;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #069;
+}
+
+textarea {
+	height: 150px;
+	padding: 0px;
+	width: 200px;
+}
+
+input {
+	width: 200px;
+	background-color: #FFFFFF;
+    border: 1px solid #BBBBBB;
+    color: #000000;
+}
+
+input.quantity {
+	width: 40px;
+	text-align: right;
+}
+
+input.quality {
+	width: 80px;
+}
+
+label {
+	font-size: 13px;
+}
+
+hr {
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+.input.label {
+	float: right;
+}
