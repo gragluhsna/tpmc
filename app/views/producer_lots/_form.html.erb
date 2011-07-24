@@ -1,7 +1,9 @@
 <%= simple_form_for setup_producer_lot(@producer_lot) do |f| %>
     <%= f.error_messages %>
     <%= f.association :producer %>
-    <%= f.input :received_date, :input_html => { :class => 'date_picker' } %>
+    <%= f.input :received_date, :as => :hidden %>
+    <label>Received Date</label>
+    <input type="text" class="date-pick"></input>
     <%= f.input :advance_payment %>
     <%= f.input :comments %>
     <%= f.simple_fields_for :producer_lot_details do |f_pld| %>
@@ -16,4 +18,12 @@
     <% end %>
     <%= f.button :submit %>
 <% end %>
-<div id="datepicker"></div>
+
+<script>
+	$(document).ready(
+		$(function()
+		{
+			$('.date-pick').datePicker().val(new Date().asString()).trigger('change');
+		}));
+
+</script>
