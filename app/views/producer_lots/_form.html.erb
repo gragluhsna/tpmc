@@ -1,9 +1,9 @@
 <%= simple_form_for setup_producer_lot(@producer_lot) do |f| %>
     <%= f.error_messages %>
     <%= f.association :producer %>
-    <%= f.input :received_date, :as => :hidden %>
+    <%= f.input :received_date, :as => :string, :as => :hidden %>
     <label>Received Date</label>
-    <input type="text" class="date-pick"></input>
+    <input type="text" class="date-pick" readonly="readonly"></input>
     <%= f.input :advance_payment %>
     <%= f.input :comments %>
     <%= f.simple_fields_for :producer_lot_details do |f_pld| %>
@@ -16,6 +16,7 @@
         	<%= f_pld_plq.input :quantity, :label => f_pld_plq.object.product_quality.quality_code, :input_html => {:class => "quantity"} %>
     	<% end %>    
     <% end %>
+    <%= f.input :is_audited %>
     <%= f.button :submit %>
 <% end %>
 
@@ -23,7 +24,11 @@
 	$(document).ready(
 		$(function()
 		{
-			$('.date-pick').datePicker().val(new Date().asString()).trigger('change');
+			Date.format = 'mmmm dd, yyyy';			
+			$('.date-pick')
+				.datePicker()
+				.val(Date.fromString($('#producer_lot_received_date').val(),"yyyy-mm-dd").asString('mmmm dd, yyyy')).trigger('change')
+				.bind('dateSelected',function(e, selectedDate, $td){$('#producer_lot_received_date').val(selectedDate.asString('yyyy-mm-dd'))});
 		}));
 
 </script>

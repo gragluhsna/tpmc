@@ -16,7 +16,7 @@
 <% @producer_lots.sort_by(&:received_date).reverse.each do |producer_lot| %>
   <tr>
     <td><%= producer_lot.producer.name %></td>
-    <td><%= producer_lot.received_date.to_s(:long) %></td>
+    <td><%= producer_lot.received_date.strftime('%B %d, %Y') %></td>
     <td><%= producer_lot.comments %></td>
     <% producer_lot_details_collated(producer_lot).each do |p_l_d| %>
         <td><%= p_l_d.quantity %></td>

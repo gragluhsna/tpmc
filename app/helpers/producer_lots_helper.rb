@@ -1,7 +1,7 @@
 module ProducerLotsHelper
 
   def setup_producer_lot(producer_lot)
-    producer_lot.received_date = Time.now if producer_lot.new_record?
+    producer_lot.received_date = Date.today if producer_lot.new_record?
     Product.find(:all).each do |product|
       producer_lot.producer_lot_details.build(:product_id => product.id, :quantity => 0) if producer_lot.producer_lot_details.find_all_by_product_id(product.id).empty?
     end   
@@ -34,12 +34,7 @@ module ProducerLotsHelper
 	def get_rate_for_product(product, received_date)
 	  #ToDo create constant for B quality
 	  @product_quality_B_id = product.product_qualities.find_by_quality_code(product.code + "-B").id
-	  return product
-	           .product_quality_purchase_rates
-	           .where("product_quality_id = ? AND start_date <= ? AND end_date >= ?", @product_quality_B_id, received_date,received_date)
-	           .limit(1)
-	           .map(&:purchase_rate)
-	           .first
+	  return product.product_quality_purchase_rates.where("product_quality_id = ? AND start_date <= ? AND end_date >= ?", @product_quality_B_id, received_date,received_date).limit(1).map(&:purchase_rate).first
 	end
 
 end
