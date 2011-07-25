@@ -1,0 +1,1 @@
+<h1>Reports</h1><div>Inventory as of <%= Date.today.strftime('%B %d, %Y')%></div><div>Audited</div>	<% @inventory.each do |product_detail| %>		<%= product_detail %> <br />	<% end %><div>Unaudited</div>

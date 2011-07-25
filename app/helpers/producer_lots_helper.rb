@@ -15,26 +15,26 @@ module ProducerLotsHelper
   end
 
 	def producer_lot_details_collated(producer_lot)
-		@producer_lot_details = Array.new
+		producer_lot_details = Array.new
 		Product.find(:all).each do |product|
-			@total_quantity = ProducerLotDetail.sum(:quantity, :conditions => ["product_id = ? AND producer_lot_id = ?", product.id, producer_lot.id])
-			@producer_lot_details << ProducerLotDetail.new( :producer_lot_id => producer_lot.id, :product_id => product.id, :quantity => @total_quantity )
+			total_quantity = ProducerLotDetail.sum(:quantity, :conditions => ["product_id = ? AND producer_lot_id = ?", product.id, producer_lot.id])
+			producer_lot_details << ProducerLotDetail.new( :producer_lot_id => producer_lot.id, :product_id => product.id, :quantity => total_quantity )
 		end 
-		return @producer_lot_details
+		return producer_lot_details
 	end
 	
 	def calculate_ideal_advance_payment(producer_lot)
-	  @unaudited_value = 0
+	  unaudited_value = 0
 	  producer_lot.producer_lot_details.each do |producer_lot_detail|
-       @unaudited_value += producer_lot_detail.quantity * get_rate_for_product(producer_lot_detail.product, producer_lot.received_date)
+       unaudited_value += producer_lot_detail.quantity * get_rate_for_product(producer_lot_detail.product, producer_lot.received_date)
 	  end
-	  return @unaudited_value * 0.5
+	  return unaudited_value * 0.5
 	end
 	
 	def get_rate_for_product(product, received_date)
 	  #ToDo create constant for B quality
-	  @product_quality_B_id = product.product_qualities.find_by_quality_code(product.code + "-B").id
-	  return product.product_quality_purchase_rates.where("product_quality_id = ? AND start_date <= ? AND end_date >= ?", @product_quality_B_id, received_date,received_date).limit(1).map(&:purchase_rate).first
+	  product_quality_B_id = product.product_qualities.find_by_quality_code(product.code + "-B").id
+	  return product.product_quality_purchase_rates.where("product_quality_id = ? AND start_date <= ? AND end_date >= ?", product_quality_B_id, received_date,received_date).limit(1).map(&:purchase_rate).first
 	end
 
 end
