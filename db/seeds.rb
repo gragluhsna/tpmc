@@ -13,18 +13,18 @@ products = Product.create([
 ])
 
 product_qualities = ProductQuality.create([
-  {:code => '10RP-A', :description => '10" Rice Plate A', :product => products.first},
-  {:code => '10RP-B', :description => '10" Rice Plate B', :product => products.first},
-  {:code => '10RP-R', :description => '10" Rice Plate R', :product => products.first},
-  {:code => '6QP-A', :description => '6" Quarter Plate A', :product => products.second},
-  {:code => '6QP-B', :description => '6" Quarter Plate B', :product => products.second},
-  {:code => '6QP-R', :description => '6" Quarter Plate R', :product => products.second},
-  {:code => '5B-A', :description => '5" Bowl A', :product => products.third},
-  {:code => '5B-B', :description => '5" Bowl B', :product => products.third},
-  {:code => '5B-R', :description => '5" Bowl R', :product => products.third},
-  {:code => '4B-A', :description => '4" Bowl A', :product => products.fourth},
-  {:code => '4B-B', :description => '4" Bowl B', :product => products.fourth},
-  {:code => '4B-R', :description => '4" Bowl R', :product => products.fourth},
+  {:quality_code => '10RP-A', :description => '10" Rice Plate A', :product => products.first},
+  {:quality_code => '10RP-B', :description => '10" Rice Plate B', :product => products.first},
+  {:quality_code => '10RP-R', :description => '10" Rice Plate R', :product => products.first},
+  {:quality_code => '6QP-A', :description => '6" Quarter Plate A', :product => products.second},
+  {:quality_code => '6QP-B', :description => '6" Quarter Plate B', :product => products.second},
+  {:quality_code => '6QP-R', :description => '6" Quarter Plate R', :product => products.second},
+  {:quality_code => '5B-A', :description => '5" Bowl A', :product => products.third},
+  {:quality_code => '5B-B', :description => '5" Bowl B', :product => products.third},
+  {:quality_code => '5B-R', :description => '5" Bowl R', :product => products.third},
+  {:quality_code => '4B-A', :description => '4" Bowl A', :product => products.fourth},
+  {:quality_code => '4B-B', :description => '4" Bowl B', :product => products.fourth},
+  {:quality_code => '4B-R', :description => '4" Bowl R', :product => products.fourth},
 ])
 
 
