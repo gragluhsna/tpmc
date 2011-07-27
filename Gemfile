@@ -9,6 +9,7 @@ gem 'sqlite3'
 gem "simple_form"
 gem "jquery-rails"
 gem "haml"
+gem "gchart"
 
 # Use unicorn as the web server
 # gem 'unicorn'
