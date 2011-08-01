@@ -1,0 +1,27 @@
+<table>
+	<tr>
+		<%= simple_form_for setup_producer_lot(@producer_lot), :remote => true do |p_l| %>
+	    <td><%= p_l.association :producer %></td>
+	    <td><%= p_l.input :received_date, :as => :string, :as => :hidden %>
+	    <input type="text" class="date-pick" readonly="readonly"></input></td>
+	    <td><%= p_l.input :comments %></td>
+	    <%= p_l.simple_fields_for :producer_lot_details do |p_l_d| %>
+	    	<td><%= p_l_d.input :quantity %></td>
+    	<% end %>
+	    <td><%= p_l.button :submit %></td>
+	    <td><%= link_to 'Cancel'%></td>
+	    <% end %>
+	</tr>
+</table>
+<script>
+	$(document).ready(
+		$(function()
+		{
+			Date.format = 'mmmm dd, yyyy';			
+			$('.date-pick')
+				.datePicker()
+				.val(Date.fromString($('#producer_lot_received_date').val(),"yyyy-mm-dd").asString('mmmm dd, yyyy')).trigger('change')
+				.bind('dateSelected',function(e, selectedDate, $td){$('#producer_lot_received_date').val(selectedDate.asString('yyyy-mm-dd'))});
+		}));
+
+</script>
