@@ -1,9 +1,11 @@
 <%= simple_form_for setup_producer_lot(@producer_lot) do |f| %>
     <%= f.error_messages %>
     <%= f.association :producer %>
-    <%= f.input :received_date, :as => :string, :as => :hidden %>
-    <label>Received Date</label>
-    <input type="text" class="date-pick" readonly="readonly"></input>
+    <div>
+    	<%= f.input :received_date, :as => :string, :as => :hidden %>
+    	<label>Received Date</label>
+    	<input type="text" class="date-pick" readonly="readonly"></input>
+	</div>
     <%= f.input :advance_payment %>
     <%= f.input :comments %>
     <%= f.simple_fields_for :producer_lot_details do |f_pld| %>
