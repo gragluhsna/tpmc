@@ -11,6 +11,21 @@ class ProducerLotsControllerTest < ActionController::TestCase
     assert_response :success
     assert_not_nil assigns(:producer_lots)
   end
+  
+  test "should list producer_lots for selected producer" do
+    get :index, {:producer => {:id => 1}}
+    assert_response :success
+    assert_not_nil assigns(:producer_lots)
+    assert_equal(assigns(:producer_lots)[0],@producer_lot)
+  end
+  
+  test "should list producer_lots for selected producer and received date" do
+    get :index, {:producer => {:id => 1}, :received_date => ''}
+    assert_response :success
+    assert_not_nil assigns(:producer_lots)
+    assert_equal(assigns(:producer_lots)[0],@producer_lot)
+  end
+
 
   test "should get new" do
     get :new

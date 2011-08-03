@@ -22,7 +22,7 @@
         <td><%= p_l_d.quantity %></td>
     <% end %>
     <td><%= calculate_ideal_advance_payment(producer_lot) %></td>
-    <td><%= link_to 'Edit', edit_producer_lot_path(producer_lot) %></td>
+    <td><%= link_to_box 'Edit', edit_producer_lot_path(producer_lot) %></td>
     <td><%= link_to 'Destroy', producer_lot, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
@@ -30,4 +30,4 @@
 
 <br />
 
-<%= link_to 'New Producer lot', new_producer_lot_path %>
+<%= link_to_box 'New Producer lot', new_producer_lot_path %>

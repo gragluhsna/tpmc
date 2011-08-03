@@ -2,8 +2,14 @@ class ProducerLotsController < ApplicationController
   # GET /producer_lots
   # GET /producer_lots.xml
   def index
-    @producer_lots = ProducerLot.all
-
+    
+    if(params.has_key?(:producer))
+      producer_id = params[:producer][:id]
+      @producer_lots = ProducerLot.find_all_by_producer_id(producer_id)
+    else
+      @producer_lots = ProducerLot.all
+    end
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @producer_lots }
