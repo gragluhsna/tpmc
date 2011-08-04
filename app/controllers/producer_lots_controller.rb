@@ -1,9 +1,15 @@
 class ProducerLotsController < ApplicationController
+  has_scope :produced_by
+  has_scope :received_on
+  
   # GET /producer_lots
   # GET /producer_lots.xml
   def index
     
-    @producer_lots = ProducerLot.find(:all, :conditions => build_filter_criteria(params))
+    #@producer_lots = ProducerLot.find(:all, :conditions => build_filter_criteria(params))
+    @producer_lots = ProducerLot.scoped
+    @producer_lots = @producer_lots.produced_by(params[:producer]) unless params[:producer].blank?
+    @producer_lots = @producer_lots.received_on(params[:received_date]) unless params[:received_date].blank?
     
     respond_to do |format|
       format.html # index.html.erb

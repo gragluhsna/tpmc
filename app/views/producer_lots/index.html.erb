@@ -1,9 +1,10 @@
 <h1>Listing producer_lots</h1>
 
 <form method="get">
-<!--% @options = Producer.all %-->
-<%= collection_select(:producer, :id, Producer.all, :id, :name, {:include_blank => 'All Producers'}) %>
-<%= text_field_tag(:received_date) %>
+<% @options = Producer.all.collect{|p| [p.name,p.id]} %>
+<!--%= collection_select(:produced_by, :id, Producer.all, :id, :name, {:include_blank => 'All Producers'}) %-->
+<%= select_tag("producer", options_for_select(@options), {:include_blank => 'All Producers'}) %>
+<%= text_field_tag(:received_on) %>
 <input type="submit" value="Filter" />
 </form>
 

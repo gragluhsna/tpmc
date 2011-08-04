@@ -10,6 +10,7 @@ gem "simple_form"
 gem "jquery-rails"
 gem "haml"
 gem "gchart"
+gem "has_scope"
 
 # Use unicorn as the web server
 # gem 'unicorn'

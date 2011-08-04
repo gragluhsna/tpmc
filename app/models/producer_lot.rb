@@ -7,7 +7,7 @@ class ProducerLot < ActiveRecord::Base
 	accepts_nested_attributes_for :producer_lot_details, :allow_destroy => true, :reject_if => :all_blank
 	
 	scope :received_on, lambda {|date| { :conditions => ["DATE(received_date) =?",date]}}
-	scope :produced_by, lambda {|producer| where(:producer_id => producer.id)}
+	scope :produced_by, lambda {|producer_id| where(:producer_id => producer_id)}
 	scope :audited,  where(:is_audited => true) 
 	scope :unaudited, where(:is_audited => false)
 	
