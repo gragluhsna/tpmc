@@ -1,5 +1,12 @@
 <h1>Listing producer_lots</h1>
 
+<form method="get">
+<!--% @options = Producer.all %-->
+<%= collection_select(:producer, :id, Producer.all, :id, :name, {:include_blank => 'All Producers'}) %>
+<%= text_field_tag(:received_date) %>
+<input type="submit" value="Filter" />
+</form>
+
 <table>
   <tr>
     <th>Producer</th>

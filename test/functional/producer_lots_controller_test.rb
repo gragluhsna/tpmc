@@ -13,20 +13,21 @@ class ProducerLotsControllerTest < ActionController::TestCase
   end
   
   test "should list producer_lots for selected producer" do
-    get :index, {:producer => {:id => 1}}
+    get :index, {:producer => {:id => @producer_lot.producer_id}}
     assert_response :success
     assert_not_nil assigns(:producer_lots)
-    assert_equal(assigns(:producer_lots)[0],@producer_lot)
+    assert_equal(@producer_lot,assigns(:producer_lots)[0])
   end
   
   test "should list producer_lots for selected producer and received date" do
-    get :index, {:producer => {:id => 1}, :received_date => ''}
+    @producer_lot = producer_lots(:three)
+    get :index, {:producer => {:id => @producer_lot.producer_id}, :received_date => @producer_lot.received_date.to_date}
     assert_response :success
     assert_not_nil assigns(:producer_lots)
-    assert_equal(assigns(:producer_lots)[0],@producer_lot)
+    assert_equal(1, assigns(:producer_lots).size, @producer_lot.received_date.to_date.to_s)
+    assert_equal(@producer_lot, assigns(:producer_lots)[0])
   end
-
-
+  
   test "should get new" do
     get :new
     assert_response :success

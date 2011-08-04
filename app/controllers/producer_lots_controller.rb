@@ -3,17 +3,21 @@ class ProducerLotsController < ApplicationController
   # GET /producer_lots.xml
   def index
     
-    if(params.has_key?(:producer))
-      producer_id = params[:producer][:id]
-      @producer_lots = ProducerLot.find_all_by_producer_id(producer_id)
-    else
-      @producer_lots = ProducerLot.all
-    end
+    @producer_lots = ProducerLot.find(:all, :conditions => build_filter_criteria(params))
     
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @producer_lots }
     end
+  end
+  
+  def build_filter_criteria(params)
+   filter_criteria = []
+   filter_criteria << "producer_id = '" + params[:producer][:id].to_s + "'" if(params.has_key?(:producer))
+   filter_criteria << "DATE(received_date) = '" + params[:received_date].to_s + "'" if(params.has_key?(:received_date && !params[:received_date].blank?))
+   
+   return filter_criteria.join(" AND ")
+        
   end
 
   # GET /producer_lots/1

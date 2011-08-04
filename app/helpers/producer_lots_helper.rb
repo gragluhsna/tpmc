@@ -37,4 +37,12 @@ module ProducerLotsHelper
 	  return product.product_quality_purchase_rates.where("product_quality_id = ? AND start_date <= ? AND end_date >= ?", product_quality_B_id, received_date,received_date).limit(1).map(&:purchase_rate).first
 	end
 
+  def build_filter_criteria(params)
+   filter_criteria = []
+   filter_criteria << "producer_id = '" + params[:producer][:id].to_s + "'" if(params.has_key?(:producer))
+   filter_criteria << "received_date = '" + params[:received_date].to_s + "'" if(params.has_key?(:received_date))
+   
+   return filter_criteria.join(" AND ")
+        
+  end
 end
