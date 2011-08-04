@@ -1,6 +1,4 @@
 class ProducerLotsController < ApplicationController
-  has_scope :produced_by
-  has_scope :received_on
   
   # GET /producer_lots
   # GET /producer_lots.xml

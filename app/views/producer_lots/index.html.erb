@@ -4,7 +4,7 @@
 <% @options = Producer.all.collect{|p| [p.name,p.id]} %>
 <!--%= collection_select(:produced_by, :id, Producer.all, :id, :name, {:include_blank => 'All Producers'}) %-->
 <%= select_tag("producer", options_for_select(@options), {:include_blank => 'All Producers'}) %>
-<%= text_field_tag(:received_on) %>
+<%= text_field_tag(:received_date) %>
 <input type="submit" value="Filter" />
 </form>
 
